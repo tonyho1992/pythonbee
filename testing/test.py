@@ -1,6 +1,4 @@
 from code import *
-import json
-import pprint
 
 class bcolors:
     HEADER = '\033[95m'
