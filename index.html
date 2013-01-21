@@ -1,14 +1,188 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css">
-	<<script src="bootstrap/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    
+    
+    <title>PythonBee!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    
+    
+	<script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<a class="brand" href="#">Python Bee</a>
-		</div>
-	</div>
-	<h1>
+    
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="http://bit.ly/XrywPl">Sign up!</a></li>
+          <li><a href="#rules">How do I play?</a></li>
+          <li><a href="#contact">Questions?</a></li>
+        </ul>
+        <h3 class="muted" style="color: #003f7f">PythonBee!</h3>
+      </div>
+
+      <hr>
+
+      <div class="jumbotron">
+        <h1>Ready to test your spelling ability?</h1><br>
+        <p class="lead">HCS and Hack Harvard present the first ever PythonBee!</p>
+        <h3> What you'll need: </h3>
+        <div style="text-align: left; padding: 0 0 0 200px;">
+            <ul>
+                <li>A team of two (you and a friend!).</li>
+                <li>Some coding experience (CS 50 or higher!).</li>
+                <li>Be ready to have a good time.</li>
+                <li>...and some Python wouldn't hurt!</li>
+            </ul>
+        </div>
+        <h4> Check out the rules and information below! </h4><br>
+        <a class="btn btn-large btn-success" href="http://bit.ly/XrywPl">Sign up today!</a>
+      </div>
+      <br><br>
+      <hr>
+
+      <a name="rules"></a> 
+      <h1 style="text-align: center">The Rules</h1>
+      
+      <div class="row-fluid marketing">
+        <div class="span6">
+          <h4>Rules of the Bee</h4>
+          <div>
+            <ul>
+                <li>Players first will hear the problem statement.</li>
+                <li>Players can ask about the problem (constraints, edge cases / etc.) for 1 minute.</li>
+                <li>Players cannot talk to one another after the problem statement is given except to declare readiness.</li>
+                <li>The instance a Player starts to spell a letter, time will start.</li>
+                <li>Players will alternate, either giving one “command” per turn.</li>
+                <li>Players can use the standard keyboard and the “Clearline” option which will delete the entire line that the two teams are working on.</li>
+                <li>For these specific keywords, use the following phrases:</li>
+                <li style="list-style-type : none;">
+                    <ul>
+                        <li>‘\t’ : “TAB”</li>
+                        <li>‘\n’ : “NEWLINE”</li>
+                        <li>‘clear’ : ‘CLEARLINE’</li>
+                        <li>‘#’ : ‘POUND’</li>
+                        <li>‘[‘ : ‘OPEN SQUARE BRACKET’</li>
+                        <li>‘]’ : ‘CLOSE SQUARE BRACKET’</li>
+                    </ul>
+                </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="span6">
+
+          <h4>Functions</h4>
+          <div>
+            <ul>
+                <li>Must be of form: def fun(....)</li>
+                <li>Watch out! All tabs and newlines must be correct</li>
+                <li>Watch out for runtime errors (divide by zero, interpretation error, etc.) </li>
+            </ul>
+          </div>
+          
+          <h4>Teams</h4>
+          <div>
+            <ul>
+                <li>Each team must have 2 members</li>
+                <li>Sign up above!</li>
+            </ul>
+          </div>
+          
+          <h4>Time Limit</h4>
+          <div>
+            <ul>
+                <li>Each team must have 2 members</li>
+                <li>Sign up above!</li>
+            </ul>
+          </div>
+        
+          <h4>Scoring</h4>
+          <div>
+            <ul>
+                <li>Time matters...</li>
+                <li>...But only if you are correct!</li>
+            </ul>
+          </div>
+          <a name="contact"></a> 
+          <h4>Misc and Questions</h4>
+          <div>
+            <ul>
+                <li>These rules are a general guideline. Finding technicalities is not in good nature of the Bee.</li>
+                <li>More questions? Please email <a>nealwu@college</a>, <a>tonyho@college</a>, or <a>saagar@hcs</a>!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h1 style="text-align:center">Interested? Sign up above!</h1><br>
+      
+      
+      <hr>
+
+      <div class="footer">
+        <p>Presented to you by the <a href="http://hcs.harvard.edu">Harvard Computer Society</a> and <a href="http://www.hackharvard.org/">Hack Harvard</a></p>
+      </div>
+
+    </div> <!-- /container -->
+    
+    
+    
+    
 </body>
 </html>
