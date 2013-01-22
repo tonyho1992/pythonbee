@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-    
-    
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
     <title>PythonBee!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -78,15 +76,15 @@
       <hr>
 
       <div class="jumbotron">
-        <h1>Ready to test your spelling ability?</h1><br>
-        <h3> What you'll need: </h3>
+        <h1>Ready to test your speling ability?</h1><br>
+        <h3> Did you catch that? Here's what you'll need: </h3>
         <div style="text-align: left; padding: 0 0 0 200px;">
             <ul>
-                <li>A team of two (you and a friend!)</li>
-                <li>Coding experience in python</li>
-                <li>Be ready to have a good time</li>
-                <li>Interested in hanging out with CS community</li>
-                <li>Want to win some prizes</li>
+                <li>A team of two (you and a friend)!</li>
+                <li>Minimal coding experience in Python.</li>
+                <li>Be ready to have a good time.</li>
+                <li>Get to know the some of the CS community.</li>
+                <li>Want to win some prizes.</li>
             </ul>
         </div>
         <h4> Check out the rules and information below! </h4><br>
@@ -103,22 +101,21 @@
           <h4>Rules of the Bee</h4>
           <div>
             <ul>
-                <li>Players will first hear the problem statement.</li>
-                <li>Players cannot talk to one another after the problem statement is given except to declare readiness.</li>
-                <li>Players can ask about the problem (constraints, edge cases / etc.) for 1 minute.</li>
-                <li>The instance a Player starts to spell a letter, time will start.</li>
-                <li>Players will alternate, either giving one “command” per turn.</li>
-                <li>Players can use the standard keyboard and the “Clearline” option which will delete the entire line that the two teams are working on.</li>
+                <li>Players will first hear the problem statement. For example:
+                  <pre>Write a function that takes two
+integers and returns their sum.</pre></li>
+                <li>Players will alternate writing the code, each specifying one character at a time.</li>
+                <li>Players are not allowed to talk to one another after the problem statement is given. Communication can only be through code written.</li>
+                <li>Writing comments in code is allowed.</li>
+                <li>Players will have 4 minutes per problem to write a complete function, starting from when the problem is completely read.</li>
+                <li>Players can ask for problem clarifications ONLY at any time. (No communication about potential algorithms.)</li>
+                <li>Players can use the standard keyboard and the “Clear line” option which will delete the entire line that the two teams are working on.</li>
                 <li>For these specific keywords, use the following phrases:</li>
                 <li style="list-style-type : none;">
                     <ul>
                         <li>‘\t’ : “TAB”</li>
                         <li>‘\n’ : “NEWLINE”</li>
-                        <li>‘clear’ : ‘CLEARLINE’</li>
-                        <li>‘#’ : ‘POUND’</li>
-                        <li>‘[‘ : ‘OPEN SQUARE BRACKET’</li>
-                        <li>‘]’ : ‘CLOSE SQUARE BRACKET’</li>
-                        <li>'!' : 'EXCLAMATION MARK'</li>
+                        <li>‘clear’ : ‘CLEAR LINE’</li>
                     </ul>
                 </li>
             </ul>
@@ -127,9 +124,12 @@
           <h4>Functions</h4>
           <div>
             <ul>
-                <li>Must be of form: def fun(....)</li>
-                <li>Watch out! All tabs and newlines must be correct</li>
-                <li>Watch out for runtime errors (divide by zero, interpretation error, etc.) </li>
+                <li>Function must be named "fun". Example solution to the problem above:
+                  <pre>def fun(a, b):
+    return a + b</pre></li>
+                <li>Watch out! All indentation and spacing must be correct. This is Python, you know.</li>
+                <li>Watch out for runtime errors (division by zero, interpretation error, etc.)</li>
+                <li>All decisions by the judges will be final.</li>
             </ul>
           </div>
           
@@ -140,35 +140,27 @@
           <h4>Teams</h4>
           <div>
             <ul>
-                <li>Each team must have 2 members</li>
-                <li>If you don't have a partner, come to event and we will pair you up!</li>
+                <li>Each team must have 2 members.</li>
+                <li>If you don't have a partner, sign up anyway and we will pair you up!</li>
             </ul>
           </div>
           
-          <h4>Time Limit</h4>
-          <div>
-            <ul>
-                <li>Players have 1 minutes to ask questions about the problem statement</li>
-                <li>Players will have 3 minutes to spell out their solutions to the problem given</li>
-            </ul>
-          </div>
-        
           <h4>Scoring</h4>
           <div>
             <ul>
-                <li>Spelling Bee rules will be used</li>
-                <li>Players who correctly spell out their solution will move to the next round</li>
-                <li>If no Players correctly spell out their solution in a round, all Players from that round will move on</li>
-                <li>When there are only 2 or 3 Players left and only one Player moves to the next round, that Player will be the Champion</li>
-                <li>When there are more than 3 Players left and only one Player moves to the next round, that Player must solve an additional problem to be crowned Champion</li>
+                <li>Spelling Bee rules will be used.</li>
+                <li>Teams who spell out a correct solution in a round will move to the next round.</li>
+                <li>If no teams correctly spell out a solution in a round, all teams from that round will move on.</li>
+                <li>When there are only 2-3 teams left and only one team correctly spells a solution, that team will be the Champion.</li>
+                <li>If there are more than 3 teams left and only one team moves to the next round, that team must solve an additional problem to be crowned Champion. If they are unsuccessful, all teams from the previous round will remain.</li>
             </ul>
           </div>
           <a name="contact"></a> 
           <h4>Misc and Questions</h4>
           <div>
             <ul>
-                <li>These rules are a general guideline. Finding technicalities is not in good nature of the Bee.</li>
-                <li>More questions? Please email <a>nealwu@college</a>, <a>tonyho@college</a>, or <a>saagar@hcs</a>!</li>
+                <li>These rules are meant as general guidelines. Finding technicalities is not in good nature of the Bee.</li>
+                <li>More questions? Email <a href="mailto:nealwu@cs.harvard.edu">nealwu@cs.harvard.edu</a>, <a href="mailto:tonyho@college.harvard.edu">tonyho@college.harvard.edu</a>, or <a href="mailto:saagar@hcs.harvard.edu">saagar@hcs.harvard.edu</a>!</li>
             </ul>
           </div>
         </div>
@@ -181,7 +173,7 @@
 
       <div class="footer">
         <p>Presented to you by the <a href="http://hcs.harvard.edu">Harvard Computer Society</a> and <a href="http://www.hackharvard.org/">Hack Harvard</a></p>
-        <p>Also, a special thanks to MIT and Dropbox for giving us the idea of doing this event.</p>
+        <p>Also, special thanks to MIT and Dropbox for the event idea.</p>
       </div>
 
     </div> <!-- /container -->
