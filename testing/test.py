@@ -1,6 +1,4 @@
 from code import *
-import json
-import pprint
 
 class bcolors:
     HEADER = '\033[95m'
@@ -19,16 +17,16 @@ class bcolors:
         self.ENDC = ''
 
 def test_inputs(in_path, out_path):
-	inS = open(in_path, 'r').read()
-	outS = open(out_path, 'r').read()
-	fin = json.loads(inS)
-	fout = json.loads(outS)
-	for i in fin:
-		data = fin[i]
-		if(fun(*data) == fout[i]):
-			print bcolors.OKGREEN + '[PASSED] ' + bcolors.ENDC + str(data) + '==' + str(fout[i])
+	in_arr = open(in_path, 'r').readlines()
+	out_arr = open(out_path, 'r').readlines()
+	failCount = 0
+	for i, ele in enumerate(in_arr):
+		inValue = eval(ele)
+		outValue = eval(out_arr[i])
+		if(fun(*inValue) == outValue):
+			print bcolors.OKGREEN + '[PASSED] ' + bcolors.ENDC + 'fun(' + str(inValue) + ') == ' + str(outValue)
 		else:
-			print bcolors.FAIL + '[FAILED]' + bcolors.ENDC + str(data) + '!=' + str(fout[i])
+			print bcolors.FAIL + '[FAILED] ' + bcolors.ENDC + 'fun(' + str(inValue) + ') != ' + str(outValue)
 
 if __name__ == "__main__":
 	import sys
