@@ -28,7 +28,7 @@ if (Meteor.isClient) {
                     }
                     Timers.update({prob: 0}, {prob: 0, min: newMin, sec: newSec});
                 }, 1000);
-            } else if (e.srcElement.defaultValue == "NextProblem") {
+            } else if (event.srcElement.defaultValue == "NextProblem") {
                 // Updating to the next problem
                 var obj = CurrNum.findOne({});
                 CurrNum.update({}, {num: obj['num'] + 1});
