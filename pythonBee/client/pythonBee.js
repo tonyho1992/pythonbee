@@ -1,3 +1,6 @@
+MINUTES = 5;
+SECONDS = 0;
+
 if (Meteor.isClient) {
     Template.hello.events({
         'click input' : function(event) {
@@ -12,7 +15,7 @@ if (Meteor.isClient) {
                 }
             } else if (event.srcElement.defaultValue == "SetTimer") {
                 // Updating the timer
-                Timers.update({prob: 0}, {prob: 0, min: 0, sec: 10});
+                Timers.update({prob: 0}, {prob: 0, min: MINUTES, sec: SECONDS});
                 var intervalID = Meteor.setInterval(function() {
                     var obj = Timers.findOne({prob: 0});
                     var newSec, newMin;
@@ -75,7 +78,7 @@ if (Meteor.isClient) {
         if (!obj) {
             return '';
         }
-        return obj['code'].replace('\t', '    ');
+        return obj['code'].split('\t').join('    ');
     };
 
     Template.hello.turn = function() {
