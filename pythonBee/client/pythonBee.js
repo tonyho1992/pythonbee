@@ -119,7 +119,7 @@ if (Meteor.isClient) {
         $('#player').keyup(function(e) { 
           var keyCode = e.which;
           if (keyCode == 9) {
-            this.value = '\t'
+            this.value = '    '
           } else if (keyCode == 13) {
             this.value = '\n'
           }
