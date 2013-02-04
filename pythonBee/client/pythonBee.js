@@ -37,7 +37,11 @@ if (Meteor.isClient) {
     });
 
     Template.hello.lastChar = function() {
-        var str = Template.hello.code();
+        var obj = Template.hello.getDBCodeObj();
+        if (!obj) {
+            return '';
+        }
+        var str = obj['code'];
         var ch = str.charAt(str.length - 1);
         if (ch == '\n') {
             return 'NEWLINE';
@@ -69,9 +73,9 @@ if (Meteor.isClient) {
     Template.hello.code = function() {
         var obj = Template.hello.getDBCodeObj();
         if (!obj) {
-            return ''
+            return '';
         }
-        return obj['code'];
+        return obj['code'].replace('\t', '    ');
     };
 
     Template.hello.turn = function() {
@@ -120,9 +124,9 @@ if (Meteor.isClient) {
                     var val = this.value.charAt(0);
                     this.value = '';
                     if (keyCode == 9) {
-                        this.value = '    ';
+                        val = '\t';
                     } else if (keyCode == 13) {
-                        this.value = '\n';
+                        val = '\n';
                     }
                     var obj = Template.hello.getDBCodeObj();
                     if (obj && obj['last_wrote'] != id) {
