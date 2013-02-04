@@ -2,12 +2,8 @@ if (Meteor.isClient) {
   Template.hello.events({
     'click input' : function (e) {
       if (e.srcElement.defaultValue == "ClearLine") {
-        if(!Meteor.user() || !Meteor.user().emails)
-          return;
-        var num = CurrNum.findOne({})['num'];
-        var id = Meteor.user().emails[0].address;
-        var teamN = id.split('_')[0];
-        var obj = PythonCode.findOne({prob : num, team: teamN});
+        // Running the Clearline Operation
+        var obj = Template.hello.getDBCodeObj();
         if (obj && obj['last_wrote'] != id) {
           var codeStr = obj['code'];
           var index = codeStr.lastIndexOf('\n') == -1 ? 0 : obj['code'].lastIndexOf('\n');
@@ -15,6 +11,7 @@ if (Meteor.isClient) {
           PythonCode.update({prob : num, team: teamN}, {prob : num, team: teamN, code : newStr, last_wrote: id});
         }
       } else if (e.srcElement.defaultValue == "SetTime") {
+        // Updating the Timer
         Timers.update({prob:0}, {prob:0, min:0, sec:10});
         intervalid = Meteor.setInterval(function() {
           var obj = Timers.findOne({prob:0});
@@ -32,6 +29,7 @@ if (Meteor.isClient) {
           Timers.update({prob:0}, {prob:0, min:newMin, sec:newSec});
         }, 1000);
       } else if (e.srcElement.defaultValue == "NextProblem") {
+        // Updating To the Next Timer
         var obj = CurrNum.findOne({});
         CurrNum.update({}, {num:obj['num']+1});
       }
@@ -41,18 +39,22 @@ if (Meteor.isClient) {
   Template.hello.time = function () {
     var obj = Timers.findOne({prob:0});
     if (!obj) {
-      return ''
+      return '';
     }
     return obj['min'] + ":" + (obj['sec'] < 10 ? "0" + obj['sec'] : obj['sec']);
   }
 
-  Template.hello.code = function () {
+  Template.hello.getDBCodeObj = function() {
     if(!Meteor.user() || !Meteor.user().emails)
-      return '';
-    var num = CurrNum.findOne({})['num'];
-    var id = Meteor.user().emails[0].address;
-    var teamN = id.split('_')[0];
-    var obj = PythonCode.findOne({prob : num, team : teamN});
+      return undefined;
+    num = CurrNum.findOne({})['num'];
+    id = Meteor.user().emails[0].address;
+    teamN = id.split('_')[0];
+    return PythonCode.findOne({prob : num, team : teamN});
+  }
+
+  Template.hello.code = function () {
+    var obj = Template.hello.getDBCodeObj();
     if (!obj) {
         return ''
     }
@@ -65,8 +67,8 @@ if (Meteor.isClient) {
     var num = CurrNum.findOne({})['num'];
     var id = Meteor.user().emails[0].address;
     var teamN = id.split('_')[0];
-    var obj = PythonCode.findOne({prob : 0, team : teamN});
-    if (obj && obj['last_wrote'] == Meteor.user().emails[0].address) {
+    var obj = PythonCode.findOne({prob : num, team : teamN});
+    if (obj && obj['last_wrote'] == id) {
       return 'nogo';
     } else {
       return 'go'
@@ -108,20 +110,10 @@ if (Meteor.isClient) {
           } else if (keyCode == 13) {
             this.value = '\n'
           }
-
-          if(!Meteor.user() || !Meteor.user().emails)
-            return;
-          var num = CurrNum.findOne({})['num'];
-          var id = Meteor.user().emails[0].address;
-          var teamN = id.split('_')[0];
-          var obj = PythonCode.findOne({prob : num, team: teamN});
+          var obj = Template.hello.getDBCodeObj();
           if (obj && obj['last_wrote'] != id) {
-              var newStr = obj['code'] + this.value;
+            var newStr = obj['code'] + this.value;
             if (newStr.length == obj['code'].length + 1) {
-              console.log(num);
-              console.log(teamN);
-              console.log(newStr);
-              console.log(id);
               PythonCode.update({prob : num, team: teamN}, {prob : num, team:teamN, code : newStr, last_wrote: id});
             }
           }
@@ -131,4 +123,3 @@ if (Meteor.isClient) {
     }
   }
 }
-

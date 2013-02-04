@@ -1,5 +1,3 @@
-from code import *
-
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -23,14 +21,31 @@ def test_inputs(in_path, out_path):
 	for i, ele in enumerate(in_arr):
 		inValue = eval(ele)
 		outValue = eval(out_arr[i])
-		if(fun(*inValue) == outValue):
-			print bcolors.OKGREEN + '[PASSED] ' + bcolors.ENDC + 'fun(' + str(inValue) + ') == ' + str(outValue)
-		else:
-			print bcolors.FAIL + '[FAILED] ' + bcolors.ENDC + 'fun(' + str(inValue) + ') != ' + str(outValue)
+		try: # need to catch for infinite loops still
+			if(fun(*inValue) == outValue):
+				print bcolors.OKGREEN + '[PASSED] ' + bcolors.ENDC + 'fun(' + str(inValue) + ') == ' + str(outValue)
+			else:
+				print bcolors.FAIL + '[FAILED] ' + bcolors.ENDC + 'fun(' + str(inValue) + ') != ' + str(outValue)
+		except:
+			print bcolors.FAIL + '[FAILED] ' + bcolors.ENDC + "code.py has a runtime error"
 
 if __name__ == "__main__":
 	import sys
+	if (len(sys.argv) == 1):
+		print "Not enough Args. Use Case: python test.py 0 or python test.py 0 path/to/code.py"
+		return
 	probNum = sys.argv[1]
+	if (len(sys.argv) > 2):
+		fin=open(sys.argv[2],"r")
+		fout=open("code.py","w")
+		fout.write(fin.read())
+		fout.close()
+		fin.close()
+	try:
+		from code import *
+	except:
+		print bcolors.FAIL + '[FAILED] ' + bcolors.ENDC + "code.py has syntax error"
+		return
 	in_path = "problems/" + probNum + "/input.txt"
 	out_path = "problems/" + probNum + "/output.txt"
 	test_inputs(in_path, out_path)
