@@ -36,7 +36,7 @@ if __name__ == "__main__":
 	import sys
 	if (len(sys.argv) == 1):
 		print "Not enough Args. Use Case: python test.py 0 or python test.py 0 path/to/code.py"
-		return
+		sys.exit()
 	probNum = sys.argv[1]
 	if (len(sys.argv) > 2):
 		fin=open(sys.argv[2],"r")
@@ -48,7 +48,7 @@ if __name__ == "__main__":
 		from code import *
 	except:
 		print bcolors.FAIL + '[FAILED] ' + bcolors.ENDC + "code.py has syntax error"
-		return
+		sys.exit()
 	in_path = "problems/" + probNum + "/input.txt"
 	out_path = "problems/" + probNum + "/output.txt"
 	test_inputs(in_path, out_path)
