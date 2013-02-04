@@ -38,7 +38,7 @@ if (Meteor.isClient) {
 
     Template.hello.lastChar = function() {
         var str = Template.hello.code();
-        var ch = str.charAt(0);
+        var ch = str.charAt(str.length - 1);
         if (ch == '\n') {
             return 'NEWLINE';
         } else if (ch == '\t') {
