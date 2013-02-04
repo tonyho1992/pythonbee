@@ -71,7 +71,7 @@ if (Meteor.isClient) {
     if (!obj) {
         return ''
     }
-    return obj['code'].replace('\t', '  ');
+    return obj['code'];
   };
 
   Template.hello.turn = function () {
