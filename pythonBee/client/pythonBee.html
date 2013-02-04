@@ -8,6 +8,22 @@
       textarea.nogo {
       	border: 3px solid red;
       }
+      #login-buttons .login-link-text {
+        text-decoration: none;
+        line-height: 40px;
+        display: inline-block;
+        vertical-align: middle;
+        text-shadow: 0px 1px 0px white;
+        color: #333;
+        border-left: 1px solid #CCC;
+        border-right: 1px solid #CCC;
+        padding: 0px 16px;
+      }
+      #login-dropdown-list {
+        top: 45px;
+        left: 15px;
+        box-shadow: 0px 0px 5px #BBB;
+      }
     </style>
 </head>
 <body>
@@ -31,6 +47,7 @@
 	  <div>
 	    <textarea class={{turn}} id="player"></textarea>
 	    <input type="button" class="btn" value="ClearLine"/>
+      <p>Last Character <b>{{lastChar}}</b></p>
 	  </div>
 	  <pre>
 	    <code>

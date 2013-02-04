@@ -26,8 +26,11 @@ def test_inputs(in_path, out_path):
 				print bcolors.OKGREEN + '[PASSED] ' + bcolors.ENDC + 'fun(' + str(inValue) + ') == ' + str(outValue)
 			else:
 				print bcolors.FAIL + '[FAILED] ' + bcolors.ENDC + 'fun(' + str(inValue) + ') != ' + str(outValue)
+				return False
 		except:
 			print bcolors.FAIL + '[FAILED] ' + bcolors.ENDC + "code.py has a runtime error"
+			return False
+	return True
 
 if __name__ == "__main__":
 	import sys

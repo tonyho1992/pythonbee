@@ -10,7 +10,7 @@ if (Meteor.isClient) {
           var newStr = codeStr.substring(0, index);
           PythonCode.update({prob : num, team: teamN}, {prob : num, team: teamN, code : newStr, last_wrote: id});
         }
-      } else if (e.srcElement.defaultValue == "SetTime") {
+      } else if (e.srcElement.defaultValue == "SetTimer") {
         // Updating the Timer
         Timers.update({prob:0}, {prob:0, min:0, sec:10});
         intervalid = Meteor.setInterval(function() {
@@ -35,6 +35,19 @@ if (Meteor.isClient) {
       }
     }
   });
+
+  Template.hello.lastChar = function() {
+    var str = Template.hello.code();
+    var ch = str.charAt(str.length - 1);
+    if (ch == '\n') {
+      return 'NEWLINE';
+    } else if (ch == '\t') {
+      return 'TAB';
+    } else if (ch == ' ') {
+      return 'SPACE'
+    }
+    return ch;
+  }
 
   Template.hello.time = function () {
     var obj = Timers.findOne({prob:0});
