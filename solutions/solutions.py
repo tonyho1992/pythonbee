@@ -30,8 +30,26 @@ def sortLst(lst):
 
 def numDistinct(str):
     return len(set(list(str)))
+
+def concatAll(lst):
+    return ''.join(lst)
+
+def allLower(str):
+    return str.lower()
+
+def prodAll(lst):
+    return reduce(lambda x,y: x*y, lst)
+
+def longestwordcount(sentence):
+    return len(sorted(sentence.split(" "),key=lambda x: len(x))[-1])
+
+def twosum(lst,n):
+    lst = sorted(lst)
+    print lst
     
 if __name__ == "__main__":
+    twosum([1,2,3,4,5],7)
+
     # print add(2,3) == 5
     # print add(4,5) == 9
     # print add(0,0) == 0
@@ -60,8 +78,16 @@ if __name__ == "__main__":
     # print lstMax([6,2,5,3,1])
     # print sortLst([4,5,6,1,2,3])
     # print sortLst([6,2,5,3,1])
-    print numDistinct("test") == 3
-    print numDistinct("unique") == 5
-    print numDistinct("aaaaa") == 1
-    print numDistinct("abcabcabcabc") == 3
+    # print numDistinct("test") == 3
+    # print numDistinct("unique") == 5
+    # print numDistinct("aaaaa") == 1
+    # print numDistinct("abcabcabcabc") == 3
+    # print concatAll(['a','b','cd','def'])
+    # print allLower("PIN")
+    # print allLower("aBcD")
+    # print prodAll([1,2,3,4,5])
+    # print longestwordcount("Last year we used a lot of napkins at Harvard")
+    # print longestwordcount("A BB CCC DDDD EEEEEE OVER THE HILL")
+    # print longestwordcount("hello world")
+    # print longestwordcount("goodbye world")
     
