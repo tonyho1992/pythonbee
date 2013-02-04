@@ -111,28 +111,28 @@ if (Meteor.isClient) {
             self.handle = Meteor.autorun(function() {
                 $('#player').keydown(function(e) {
                     var keyCode = e.which;
-          if (keyCode == 9 || keyCode == 13) { 
-            e.preventDefault();
-          }
-        });
-        $('#player').keyup(function(e) { 
-          var keyCode = e.which;
-          var val = this.value.charAt(0);
-          this.value='';
-          if (keyCode == 9) {
-            this.value = '\t';
-          } else if (keyCode == 13) {
-            this.value = '\n';
-          }
-          var obj = Template.hello.getDBCodeObj();
-          if (obj && obj['last_wrote'] != id) {
-            var newStr = obj['code'] + val;
-            if (newStr.length == obj['code'].length + 1) {
-              PythonCode.update({prob : num, team: teamN}, {prob : num, team:teamN, code : newStr, last_wrote: id});
-            }
-          }
-        });
-      });
+                    if (keyCode == 9 || keyCode == 13) { 
+                        e.preventDefault();
+                    }
+                });
+                $('#player').keyup(function(e) { 
+                    var keyCode = e.which;
+                    var val = this.value.charAt(0);
+                    this.value='';
+                    if (keyCode == 9) {
+                        this.value = '\t';
+                    } else if (keyCode == 13) {
+                        this.value = '\n';
+                    }
+                    var obj = Template.hello.getDBCodeObj();
+                    if (obj && obj['last_wrote'] != id) {
+                        var newStr = obj['code'] + val;
+                        if (newStr.length == obj['code'].length + 1) {
+                            PythonCode.update({prob : num, team: teamN}, {prob : num, team:teamN, code : newStr, last_wrote: id});
+                        }
+                    }
+                });
+            });
         }
     }
 }
