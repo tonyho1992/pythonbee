@@ -45,11 +45,61 @@ def longestwordcount(sentence):
 
 def twosum(lst,n):
     lst = sorted(lst)
-    print lst
+    start = 0
+    end = len(lst)-1
+    while start < end:
+        if lst[start] + lst[end] == n:
+            return True
+        elif lst[start] + lst[end] > n:
+            end -= 1
+        else:
+            start += 1
+    return False
+
+def shorten(s):
+    if len(s) < 2:
+        return s
+    return s[0] + str(len(s)-2) + s[-1]
+
+def prodToN(n):
+    return reduce(lambda x,y: x*y, range(1,n+1))
+
+def reverseArray(arr):
+    # reversed by itself returns a reverse iterator
+    return list(reversed(arr))
+
+def largestDiff(arr):
+    arr = sorted(arr)
+    return arr[-1] - arr[0]
+
+def insertWatermelon(str):
+    return " watermelon ".join(str.split())
+    
+def stripWhitespace(str):
+    return str.strip();
+
+def removeVowels(str):
+    for v in ['a','e','i','o','u','A','E','I','O','U']:
+        str = str.replace(v,'')
+    return str
+
+def bigNumNdigits(n):
+    return 10**n-1
     
 if __name__ == "__main__":
-    twosum([1,2,3,4,5],7)
-
+    print bigNumNdigits(2)
+    print bigNumNdigits(3)
+    # print removeVowels('HELLOWORLD')
+    # print removeVowels('Harvard')
+    # print removeVowels('LowerCase')
+    #print stripWhitespace("   asdfasdf   ");
+    # print insertWatermelon("Last year we used a lot of napkins at Harvard");
+    # print largestDiff([1,2,3,6,4,5])
+    #print reverseArray([1,2,3,4,5])
+    # print prodToN(5)
+    # print shorten("internationalization")
+    # print twosum([1,2,3,4,5],7)
+    # print twosum([3,5,7,11,15],1)
     # print add(2,3) == 5
     # print add(4,5) == 9
     # print add(0,0) == 0
