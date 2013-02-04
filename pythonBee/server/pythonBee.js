@@ -1,7 +1,7 @@
 if (Meteor.isServer) {
     Meteor.startup(function() {
         PythonCode.remove({});
-        for(i = 0; i < 25; i++) {
+        for(i = 0; i < 50; i++) {
             PythonCode.insert({prob: 0, team: 'team' + i, code: '', last_wrote: ''});
   	    }
         PythonCode.insert({prob: 0, team: 'nrt', code: '', last_wrote: ''});
