@@ -50,7 +50,7 @@ if (Meteor.isClient) {
     }
 
     Template.hello.time = function() {
-        var obj = Timers.findOne({prob:0});
+        var obj = Timers.findOne({prob: 0});
         if (!obj) {
             return '';
         }
@@ -58,12 +58,12 @@ if (Meteor.isClient) {
     }
 
     Template.hello.getDBCodeObj = function() {
-        if(!Meteor.user() || !Meteor.user().emails)
+        if (!Meteor.user() || !Meteor.user().emails)
             return undefined;
         num = CurrNum.findOne({})['num'];
         id = Meteor.user().emails[0].address;
         teamN = id.split('_')[0];
-        return PythonCode.findOne({prob : num, team : teamN});
+        return PythonCode.findOne({prob: num, team: teamN});
     }
 
     Template.hello.code = function() {
@@ -75,25 +75,25 @@ if (Meteor.isClient) {
     };
 
     Template.hello.turn = function() {
-        if(!Meteor.user() || !Meteor.user().emails)
+        if (!Meteor.user() || !Meteor.user().emails)
             return 'nogo';
         var num = CurrNum.findOne({})['num'];
         var id = Meteor.user().emails[0].address;
         var teamN = id.split('_')[0];
-        var obj = PythonCode.findOne({prob : num, team : teamN});
+        var obj = PythonCode.findOne({prob: num, team: teamN});
         if (obj && obj['last_wrote'] == id) {
             return 'nogo';
         } else {
-            return 'go'
+            return 'go';
         }
     };
 
     Template.hello.isTonyAcc = function() {
         u = Meteor.user();
-        if(!u)
-            return false
+        if (!u)
+            return false;
         if (!u.emails)
-            return false
+            return false;
         return u.emails[0].address == 'admin@nealwu.com';
     }
 
@@ -102,25 +102,25 @@ if (Meteor.isClient) {
         if (obj) {
             return obj['num'];
         }
-        return -1;
+        return 0;
     }
 
     Template.hello.rendered = function() {
         var self = this;
-        if (! self.handle) {
+        if (!self.handle) {
             self.handle = Meteor.autorun(function() {
-                $('#player').keydown(function(e) {
-                    var keyCode = e.which;
+                $('#player').keydown(function(event) {
+                    var keyCode = event.which;
                     if (keyCode == 9 || keyCode == 13) { 
-                        e.preventDefault();
+                        event.preventDefault();
                     }
                 });
-                $('#player').keyup(function(e) { 
-                    var keyCode = e.which;
+                $('#player').keyup(function(event) { 
+                    var keyCode = event.which;
                     var val = this.value.charAt(0);
-                    this.value='';
+                    this.value = '';
                     if (keyCode == 9) {
-                        this.value = '\t';
+                        this.value = '    ';
                     } else if (keyCode == 13) {
                         this.value = '\n';
                     }
@@ -128,7 +128,7 @@ if (Meteor.isClient) {
                     if (obj && obj['last_wrote'] != id) {
                         var newStr = obj['code'] + val;
                         if (newStr.length == obj['code'].length + 1) {
-                            PythonCode.update({prob : num, team: teamN}, {prob : num, team:teamN, code : newStr, last_wrote: id});
+                            PythonCode.update({prob: num, team: teamN}, {prob: num, team: teamN, code: newStr, last_wrote: id});
                         }
                     }
                 });
