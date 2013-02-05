@@ -51,4 +51,5 @@ if __name__ == "__main__":
 		sys.exit()
 	in_path = "problems/" + probNum + "/input.txt"
 	out_path = "problems/" + probNum + "/output.txt"
-	test_inputs(in_path, out_path)
+	if(test_inputs(in_path, out_path) and len(sys.argv) > 2):
+		print sys.argv[2].split('/')[1] + " SOLVED CORRECTLY"

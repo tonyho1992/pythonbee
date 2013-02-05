@@ -7,7 +7,7 @@ if (Meteor.isClient) {
             if (event.srcElement.defaultValue == "ClearLine") {
                 // Running the clearline operation
                 var obj = Template.hello.getDBCodeObj();
-                if (obj && obj['last_wrote'] != id) {
+                if (obj && obj['last_wrote'] != id && Template.hello.time() != "0:00") {
                     var codeStr = obj['code'];
                     var index = codeStr.lastIndexOf('\n') == -1 ? 0 : obj['code'].lastIndexOf('\n');
                     var newStr = index == 0 ? codeStr.substring(0, index) : codeStr.substring(0, index) + '\n';
@@ -132,7 +132,7 @@ if (Meteor.isClient) {
                         val = '\n';
                     }
                     var obj = Template.hello.getDBCodeObj();
-                    if (obj && obj['last_wrote'] != id) {
+                    if (obj && obj['last_wrote'] != id && Template.hello.time() != "0:00") {
                         var newStr = obj['code'] + val;
                         if (newStr.length == obj['code'].length + 1) {
                             PythonCode.update({prob: num, team: teamN}, {prob: num, team: teamN, code: newStr, last_wrote: id});

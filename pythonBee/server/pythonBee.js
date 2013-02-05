@@ -1,10 +1,12 @@
 if (Meteor.isServer) {
     Meteor.startup(function() {
         PythonCode.remove({});
-        for(i = 0; i < 25; i++) {
-            PythonCode.insert({prob: 0, team: 'team' + i, code: '', last_wrote: ''});
-  	    }
-        PythonCode.insert({prob: 0, team: 'nrt', code: '', last_wrote: ''});
+        for (j = 0; j < 10; j ++) {
+            for(i = 0; i < 40; i++) {
+                PythonCode.insert({prob: j, team: 'team' + i, code: '', last_wrote: ''});
+      	    }
+            PythonCode.insert({prob: j, team: 'nrt', code: '', last_wrote: ''});
+        }
         Timers.remove({});
         Timers.insert({prob: 0, min: 0, sec: 0});
         CurrNum.remove({});
