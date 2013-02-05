@@ -6,9 +6,13 @@ db = con.meteor
 pythonCode = db.pythonCode
 COMMANDS=open("commands.txt", "w")
 for ele in pythonCode.find({"prob":int(sys.argv[1])}):
-	filename = "solutions/"+ele["team"]+"/"+str(ele["prob"])+"/code.py"
-	fout = open(filename, "w")
-	fout.write(ele["code"])
-	command = filename + '\n'
-	COMMANDS.write(command)
+        try:
+                filename = "solutions/"+ele["team"]+"/"+str(ele["prob"])+"/code.py"
+                fout = open(filename, "w")
+                fout.write(ele["code"])
+                command = filename + '\n'
+                COMMANDS.write(command)
+        except:
+                print 'Evil'
+                print ele
 COMMANDS.close()
