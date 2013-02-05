@@ -85,10 +85,56 @@ def removeVowels(str):
 
 def bigNumNdigits(n):
     return 10**n-1
+
+def fib(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib(n-1) + fib(n-2)
+
+def howManyOdds(n):
+    return n/2
+
+def palindrome(str):
+    i,j = 0,len(str)-1
+    while i <= j:
+        if str[i] != str[j]:
+            return False
+        i += 1
+        j -= 1
+    return True
+    
+def numPalindrome(n):
+    i,j = 0,len(str(n))-1
+    while i <= j:
+        if str(n)[i] != str(n)[j]:
+            return False
+        i += 1
+        j -= 1
+    return True
     
 if __name__ == "__main__":
-    print bigNumNdigits(2)
-    print bigNumNdigits(3)
+    print numPalindrome(1331)
+    print numPalindrome(13531)
+    print numPalindrome(12)
+    print numPalindrome(100)
+    # print palindrome("aaba")
+    # print palindrome("abba")
+    # print palindrome("abcba")
+    # print palindrome("abcea")
+    # print howManyOdds(6)
+    # print howManyOdds(7)
+    # print howManyOdds(10)
+    # print fib(0)
+    # print fib(1)
+    # print fib(2)
+    # print fib(3)
+    # print fib(4)
+    # print fib(5)
+    # print bigNumNdigits(2)
+    # print bigNumNdigits(3)
     # print removeVowels('HELLOWORLD')
     # print removeVowels('Harvard')
     # print removeVowels('LowerCase')
