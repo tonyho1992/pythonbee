@@ -45,7 +45,6 @@ def test_inputs(probNum, fun):
 con = pymongo.Connection(host='127.0.0.1', port=3002)
 db = con.meteor
 pythonCode = db.pythonCode
-COMMANDS=open("commands.txt", "w")
 probNum = sys.argv[1]
 for ele in pythonCode.find():
 	try:
