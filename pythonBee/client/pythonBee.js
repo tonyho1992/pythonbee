@@ -10,34 +10,41 @@ if (Meteor.isClient) {
                 if (obj && obj['last_wrote'] != id && Template.hello.time() != "0:00") {
                     var codeStr = obj['code'];
                     var index = codeStr.lastIndexOf('\n') == -1 ? 0 : obj['code'].lastIndexOf('\n');
-                    var newStr = index == 0 ? codeStr.substring(0, index) : codeStr.substring(0, index) + '\n';
+                    var newStr = index == 0 ? codeStr.substring(0, index) : codeStr.substring(0, index);
                     PythonCode.update({prob: num, team: teamN}, {prob: num, team: teamN, code: newStr, last_wrote: id});
                 }
             } else if (event.srcElement.defaultValue == "SetTimer") {
-                // Updating the timer
-                Timers.update({prob: 0}, {prob: 0, min: MINUTES, sec: SECONDS});
-                var intervalID = Meteor.setInterval(function() {
-                    var obj = Timers.findOne({prob: 0});
-                    var newSec, newMin;
-                    if (obj['sec'] == 0 && obj['min'] == 0) {
-                        Meteor.clearInterval(intervalID);
-                        return;
-                    } else if (obj['sec'] == 0) {
-                        newSec = 59;
-                        newMin = obj['min'] - 1;
-                    } else {
-                        newSec = obj['sec'] - 1;
-                        newMin = obj['min'];
-                    }
-                    Timers.update({prob: 0}, {prob: 0, min: newMin, sec: newSec});
-                }, 1000);
+                Template.hello.updateHandler();
             } else if (event.srcElement.defaultValue == "NextProblem") {
                 // Updating to the next problem
                 var obj = CurrNum.findOne({});
-                CurrNum.update({}, {num: obj['num'] + 1});
+                CurrNum.update({_id : obj['_id']}, {num: obj['num'] + 1});
             }
         }
     });
+
+    Template.hello.updateHandler = function() {
+        // Updating the timer
+        timer = Timers.findOne({"prob" : 0});
+        Timers.update({"_id": timer['_id']}, {$set : {"min": MINUTES, "x": SECONDS}});
+
+        var intervalID = Meteor.setInterval(function() {
+            var obj = Timers.findOne({prob: 0});
+            var newSec, newMin;
+            if (obj['sec'] == 0 && obj['min'] == 0) {
+                Meteor.clearInterval(intervalID);
+                return;
+            } else if (obj['sec'] == 0) {
+                newSec = 59;
+                newMin = obj['min'] - 1;
+            } else {
+                newSec = obj['sec'] - 1;
+                newMin = obj['min'];
+            }
+            timer = Timers.findOne({"prob" : 0});
+            Timers.update({"_id": timer['_id']}, {prob: 0, min: newMin, sec: newSec});
+        }, 1000);
+    }
 
     Template.hello.lastChar = function() {
         var obj = Template.hello.getDBCodeObj();
@@ -135,7 +142,8 @@ if (Meteor.isClient) {
                     if (obj && obj['last_wrote'] != id && Template.hello.time() != "0:00") {
                         var newStr = obj['code'] + val;
                         if (newStr.length == obj['code'].length + 1) {
-                            PythonCode.update({prob: num, team: teamN}, {prob: num, team: teamN, code: newStr, last_wrote: id});
+                            var code = PythonCode.findOne({prob: num, team: teamN})
+                            PythonCode.update({"_id" : code['_id']}, {prob: num, team: teamN, code: newStr, last_wrote: id});
                         }
                     }
                 });
