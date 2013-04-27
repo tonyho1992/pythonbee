@@ -1,0 +1,7 @@
+*.pyc
+*~
+*#
+*.cmi
+*.cmo
+*_run
+*_run.ml
