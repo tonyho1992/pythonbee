@@ -1,6 +1,7 @@
 #!/bin/bash
 
 prob=$1
+port=$2
 
 # Compile our solution
 cd solutions
@@ -10,7 +11,7 @@ ocamlc -o ${prob}_run ${prob}_run.ml
 
 # Grab submissions
 cd ..
-python readprobs.py $prob
+python readprobs.py $prob --port=$port
 cd $prob
 
 for team in $(ls)
