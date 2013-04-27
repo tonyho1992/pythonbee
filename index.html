@@ -2,25 +2,11 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-    <title>PythonBee!</title>
+    <title>OCamlBee!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
-<!-- Google Analytics -->
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-29291229-3']);
-      _gaq.push(['_trackPageview']);
-      
-      (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-    </script>
-    
     <style type="text/css">
       body {
         padding-top: 20px;
@@ -64,7 +50,7 @@
         text-align: center;
       }
     </style>
-    
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -76,21 +62,21 @@
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
                     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="../assets/ico/favicon.png">
-    
-    
+
+
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-    
+
     <div class="container-narrow">
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="https://docs.google.com/spreadsheet/viewform?formkey=dDhvRUJIQzZuR0lJa08tQ0pvRFdRanc6MQ">Sign up!</a></li>
+          <li class="active"><a href="http://goo.gl/Hus0U">Sign up!</a></li>
           <li><a href="#rules">How do I play?</a></li>
           <li><a href="#sponsors">Sponsors</a></li>
         </ul>
-        <h3 class="muted" style="color: #003f7f">PythonBee!</h3>
+        <h3 class="muted" style="color: #003f7f">OCamlBee!</h3>
       </div>
 
       <hr>
@@ -101,7 +87,7 @@
         <div style="text-align: left; padding: 0 0 0 200px;">
             <ul>
                 <li>A team of two (you and a friend)!</li>
-                <li>Minimal coding experience in Python.</li>
+                <li>Minimal coding experience in OCaml.</li>
                 <li>Be ready to have a good time.</li>
                 <li>Get to know more of the CS community.</li>
                 <li>Want to win some prizes.</li>
@@ -110,19 +96,19 @@
         <h3>When / Where</h3>
         <div style="text-align: left; padding: 0 0 0 200px;">
           <ul>
-            <li><b>Monday, Feb 4th, 8 - 10 pm</b>. Mark your calendars!</li>
+            <li><b>Monday, April 29th, 7:30 pm</b>. Mark your calendars!</li>
             <li>Maxwell Dworkin 119.</li>
           </ul>
         </div>
         <h4> Check out the rules and information below! </h4><br>
-        <a class="btn btn-large btn-success" href="https://docs.google.com/spreadsheet/viewform?formkey=dDhvRUJIQzZuR0lJa08tQ0pvRFdRanc6MQ">Sign up today!</a>
+        <a class="btn btn-large btn-success" href="http://goo.gl/Hus0U">Sign up today!</a>
       </div>
-      
+
       <hr>
 
-      <a name="rules"></a> 
+      <a name="rules"></a>
       <h1 style="text-align: center">The Rules</h1>
-      
+
       <div class="row-fluid marketing">
         <div class="span6">
           <h4>Rules of the Bee</h4>
@@ -151,16 +137,16 @@ integers and returns their sum.</pre></li>
           <h4>Functions</h4>
           <div>
             <ul>
-                <li>Function must be named "fun". Example solution to the problem above:
-                  <pre>def fun(a, b):
-    return a + b</pre></li>
-                In other words... "d, e, f, space, f, u, n, open paren, a, comma, space, ..."
-                <li>Watch out! All indentation and spacing must be correct. This is Python, you know.</li>
+                <li>Function must be named "camel". Example solution to the problem above:
+                  <pre>let camel x y = x + y</pre></li>
+                In other words... "l, e, t, space, c, a, m, e, l, space, equals, ..."
                 <li>Watch out for runtime errors (division by zero, interpretation error, etc.)</li>
+                <li>Your code MUST compile using OCaml 4.0.</li>
+                <li><b>You may use ANY module in the <a href="http://caml.inria.fr/pub/docs/manual-ocaml/libref/index.html">OCaml Standard Library</a></b>. This includes List, Set, Map, String, etc.</li>
                 <li>Your code will be tested on a small set of test cases for verifcation. However all decisions by the judges will be final.</li>
             </ul>
           </div>
-          
+
         </div>
 
         <div class="span6">
@@ -172,7 +158,7 @@ integers and returns their sum.</pre></li>
                 <li>If you don't have a partner, sign up anyway and we will pair you up!</li>
             </ul>
           </div>
-          
+
           <h4>Scoring</h4>
           <div>
             <ul>
@@ -194,8 +180,7 @@ integers and returns their sum.</pre></li>
           <div>
             <ul>
                 <li>These rules are meant as general guidelines. Finding technicalities is not in good nature of the Bee.</li>
-                <li>More questions? Email <a href="mailto:nealwu@college.harvard.edu">nealwu@college.harvard.edu</a>, <a href="mailto:tonyho@college.harvard.edu">tonyho@college.harvard.edu</a>, or <a href="mailto:saagar@hcs.harvard.edu">saagar@hcs.harvard.edu</a>.</li>
-                <li>Also, check out the <a href="https://www.facebook.com/events/336602729785847">Facebook event</a>!</li>
+                <li>Also, check out the <a href="https://www.facebook.com/events/446039482146400/">Facebook event</a>!</li>
             </ul>
           </div>
         </div>
@@ -205,7 +190,7 @@ integers and returns their sum.</pre></li>
 
       <h1 style="text-align: center">Sponsors</h1>
 
-      <a name="sponsors"></a> 
+      <a name="sponsors"></a>
       <div class="footer">
         <div id="club-sponsors">
           <table>
@@ -219,44 +204,20 @@ integers and returns their sum.</pre></li>
               <td colspan=1>
                 <a class="logo" href="http://hcs.harvard.edu"><img src="hcslogo.png"/></a>
               </td>
-              <td colspan=4>
-                <a class="logo" href="http://www.hackharvard.org/"><img src="hackharvardlogo.png"/></a>
-              </td>
-              <td colspan=2>
-                <div class="wics"><a class="logo" href="http://www.hcs.harvard.edu/~harvardwomenincs/"><img src="http://www.hcs.harvard.edu/~harvardwomenincs/wp-content/uploads/wics_logo2.png"/></a></div>
+              <td colspan=6>
+                <a class="logo" href="http://www.janestreet.com/"><img src="janestreet.jpg"/></a>
               </td>
             </tr>
-            <tr>
-              <td colspan=3>
-                <a class="logo" href="http://liveramp.com"><img src="liveramp.png"/></a>
-              </td>
-              <td colspan=2>
-                <a class="logo" href="http://dropbox.com"><img src="dropbox.png"/></a>
-              </td>
-              <td colspan=2>
-                <a class="logo" href="http://bwater.com"><img src="bridgewater.png"/></a>
-              </td>
-            </tr>            
-          </table>
-          <div style="text-align: center">
-            <a class="logo" href="http://facebook.com"><img style="width: 30%" src="facebooklogo.jpg"/></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer">
-        <div id="corporate-sponsors">
-          <table>
           </table>
         </div>
       </div>
-      <br>
       <div class="special" style="text-align: center">
-        <p>Also, special thanks to MIT and Dropbox for inspiring the event idea.</p>
+        <p>Also, special thanks to Tony Ho, Neal Wu, and Saagar Deshpande for the Python Bee earlier this year!</p>
       </div>
     </div> <!-- /container -->
-    
-    
-    
-    
+
+
+
+
 </body>
 </html>
