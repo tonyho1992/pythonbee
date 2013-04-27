@@ -109,7 +109,7 @@ if (Meteor.isClient) {
             return false;
         if (!u.emails)
             return false;
-        return u.emails[0].address == 'admin@nealwu.com';
+        return u.emails[0].address == 'admin@ocamlbee.com';
     }
 
     Template.hello.getProb = function() {
