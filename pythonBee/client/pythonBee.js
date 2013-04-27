@@ -1,4 +1,4 @@
-MINUTES = 5;
+MINUTES = 4;
 SECONDS = 0;
 
 if (Meteor.isClient) {
