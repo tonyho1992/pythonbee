@@ -126,11 +126,11 @@ if (Meteor.isClient) {
             self.handle = Meteor.autorun(function() {
                 $('#player').keydown(function(event) {
                     var keyCode = event.which;
-                    if (keyCode == 9 || keyCode == 13) { 
+                    if (keyCode == 9 || keyCode == 13) {
                         event.preventDefault();
                     }
                 });
-                $('#player').keyup(function(event) { 
+                $('#player').keyup(function(event) {
                     var keyCode = event.which;
                     var val = this.value.charAt(0);
                     this.value = '';
