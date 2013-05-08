@@ -1,13 +1,23 @@
 #!/bin/bash
 
+if [[ -z $1 ]]
+then
+    echo "usage: ./test.sh PROBNUM MONGOPORT"
+    exit
+fi
+
+if [[ -z $2 ]]
+then
+    echo "usage: ./test.sh PROBNUM MONGOPORT"
+    exit
+fi
+
 prob=$1
 port=$2
 
 # Compile our solution
 cd solutions
-cp $prob.ml ${prob}_run.ml
-cat ${prob}_test.ml >> ${prob}_run.ml
-ocamlc -o ${prob}_run ${prob}_run.ml
+./build.sh
 
 # Grab submissions
 cd ..

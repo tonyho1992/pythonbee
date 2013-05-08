@@ -1,0 +1,7 @@
+N.ml - contains solution (function must be named "camel")
+N_test.ml - contains tests (assertions for the camel function defined in N.ml)
+
+build.sh - builds all the solutions. Make sure to modify NUMPROBS whenever you
+add a new variable.
+
+clean.sh - removes all the junk.
