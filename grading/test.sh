@@ -32,6 +32,6 @@ do
     # Compile their source code and run it
     cp $team.ml ${team}_run.ml
     cat ../solutions/${prob}_test.ml >> ${team}_run.ml
-    ocamlc -o ${team}_run ${team}_run.ml
+    ocamlfind ocamlopt -linkpkg -thread -package core ${team}_run.ml -o ${team}_run
     ./${team}_run
 done
