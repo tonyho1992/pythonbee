@@ -2,7 +2,7 @@
 
 NUMPROBS=7
 
-for prob in $(jot $NUMPROBS)
+for prob in $(seq $NUMPROBS)
 do
     cp $prob.ml ${prob}_run.ml
     cat ${prob}_test.ml >> ${prob}_run.ml
