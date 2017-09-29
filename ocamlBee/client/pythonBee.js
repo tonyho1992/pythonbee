@@ -20,16 +20,6 @@ if (Meteor.isClient) {
                 // Updating to the next problem
                 var obj = CurrNum.findOne({});
                 CurrNum.update({_id : obj['_id']}, {num: obj['num'] + 1});
-            } else if (event.srcElement.defaultValue == "JaneSt") {
-                var obj = Template.hello.getDBCodeObj();
-                if (obj) {
-                    var codeStr = obj['code'];
-                    if (codeStr.lastIndexOf('\n') == -1) {
-                        console.log(codeStr.lastIndexOf('\n'));
-                        var newStr = codeStr + 'open Core.Std\n';
-                        PythonCode.update({_id : obj['_id']}, {prob: num, team: teamN, code: newStr, last_wrote: id});
-                    }
-                }
             }
         }
     });
