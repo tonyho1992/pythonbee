@@ -11,23 +11,26 @@ if (Meteor.isClient) {
                     var codeStr = obj['code'];
                     var index = codeStr.lastIndexOf('\n') == -1 ? 0 : obj['code'].lastIndexOf('\n');
                     var newStr = index == 0 ? "" : codeStr.substring(0, index);
-                    var obj = PythonCode.findOne({prob:num, team: teamN});
-                    PythonCode.update({_id : obj['_id']}, {prob: num, team: teamN, code: newStr, last_wrote: id});
+                    Meteor.call('PythonCode.Update', {
+                        newStr: newStr,
+                        last_wrote: id
+                    });
                 }
             } else if (event.srcElement.defaultValue == "SetTimer") {
                 Template.hello.updateHandler();
             } else if (event.srcElement.defaultValue == "NextProblem") {
-                // Updating to the next problem
-                var obj = CurrNum.findOne({});
-                CurrNum.update({_id : obj['_id']}, {num: obj['num'] + 1});
+                Meteor.call('CurrNum.Update');
             }
         }
     });
 
     Template.hello.updateHandler = function() {
         // Updating the timer
-        timer = Timers.findOne({"prob" : 0});
-        Timers.update({"_id": timer['_id']}, {$set : {"min": MINUTES, "x": SECONDS}});
+        Meteor.call('Timers.Update', {
+            mins: MINUTES, 
+            secs: SECONDS,
+            userId: Meteor.user().emails[0].address
+        });
 
         var intervalID = Meteor.setInterval(function() {
             var obj = Timers.findOne({prob: 0});
@@ -42,8 +45,11 @@ if (Meteor.isClient) {
                 newSec = obj['sec'] - 1;
                 newMin = obj['min'];
             }
-            timer = Timers.findOne({"prob" : 0});
-            Timers.update({"_id": timer['_id']}, {prob: 0, min: newMin, sec: newSec});
+            Meteor.call('Timers.Update', {
+                mins: newMin, 
+                secs: newSec,
+                userId: Meteor.user().emails[0].address
+            });
         }, 1000);
     }
 
@@ -92,10 +98,7 @@ if (Meteor.isClient) {
     Template.hello.turn = function() {
         if (!Meteor.user() || !Meteor.user().emails)
             return 'nogo';
-        var num = CurrNum.findOne({})['num'];
-        var id = Meteor.user().emails[0].address;
-        var teamN = id.split('_')[0];
-        var obj = PythonCode.findOne({prob: num, team: teamN});
+        var obj = Template.hello.getDBCodeObj();
         if (obj && obj['last_wrote'] == id) {
             return 'nogo';
         } else {
@@ -143,8 +146,10 @@ if (Meteor.isClient) {
                     if (obj && obj['last_wrote'] != id && Template.hello.time() != "0:00") {
                         var newStr = obj['code'] + val;
                         if (newStr.length == obj['code'].length + 1) {
-                            var code = PythonCode.findOne({prob: num, team: teamN})
-                            PythonCode.update({"_id" : code['_id']}, {prob: num, team: teamN, code: newStr, last_wrote: id});
+                            Meteor.call('PythonCode.Update', {
+                                newStr: newStr,
+                                last_wrote: id
+                            });
                         }
                     }
                 });
